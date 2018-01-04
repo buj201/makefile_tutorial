@@ -7,7 +7,7 @@
 
 reverse = $(2) $(1)
 
-return1 = $(call reverse,first,second)
+return = $(call reverse,first,second)
 
 $(info $(return))
 
@@ -20,7 +20,7 @@ $(info $(return))
 # defined using "=" and ":="
 # To define multi-line varibles, use define/endef
 
-define multiline_var = 
+define multiline_var
 inner_first = $(1)
 inner_second = $(2)
 endef
