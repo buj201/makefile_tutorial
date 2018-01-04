@@ -1,4 +1,4 @@
-# Chapter 5 -- $(foreach ...) and $(eval)
+# Chapter 5 -- `$(foreach ...)` and `$(eval)`
 
 ### foreach:
 
@@ -22,6 +22,9 @@ It’s important to realize that the eval argument is expanded twice; first by t
 
 ### Exploration
 
-1. Run `make`. Note the the first lines sent to stdout are from the $(info ...) call on line 57. The rest of the stoutput is when make executes recipes.
-2. How is eval being
+1. Run `make`. Note the section dividers in stdout are intended to divide the sections of the makefile.
+2. How are user-defined functions being used in this makefile?
+3. How is variable appending useful when using eval?
+4. How do info/eval compare?
+
 
