@@ -18,3 +18,4 @@ There are two ways that a variable in GNU make can have a value; we call them th
 2. Run `make first_example` to see the first example of variable definition and use.
 3. Recall that '=' defines a variable recursively, such that the RHS is only expanded when the variable is called. Predict what `make recursively_expanded_example` will print. Then run it. 
 4. Recall that ':=' defines a variable simply, such that the RHS is expanded when the variable is defined. Predict what `make simpy_expanded_example` will print. Then run it. 
+5. Note we can append to a variable using '+='. Run `append_example` to see this in action.

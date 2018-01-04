@@ -6,7 +6,7 @@ A function call resembles a variable reference. It can appear anywhere a variabl
 
 `$(function arguments)`
 
- Here function is a function name; one of a short list of names that are part of make. This list is at https://www.gnu.org/software/make/manual/make.html#Functions.
+ Here function is a function name; one of a short list of names that are part of make. The functions built-in to make are documented at https://www.gnu.org/software/make/manual/make.html#Functions.
 
 
  The arguments are the arguments of the function. They are separated from the function name by one or more spaces or tabs, and if there is more than one argument, then they are separated by commas. 
