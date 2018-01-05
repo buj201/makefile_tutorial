@@ -98,3 +98,5 @@ $(info ---------------------------) # Hack to get divider
 
 all: $(target_list)
 
+clean:
+	rm output/output*.txt

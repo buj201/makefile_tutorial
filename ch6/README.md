@@ -1,17 +1,39 @@
-# Chapter 3 -- Function Basics
+# Chapter 6 -- Potential issues with data analytic makefiles
 
-### Intro:
+### Make with multiple targets:
 
-A function call resembles a variable reference. It can appear anywhere a variable reference can appear, and it is expanded using the same rules as variable references. A function call looks like this:
+Data analysis scripts often produce more than one output -- while this can be viewed as problematic (i.e. failing to do one thing), it is common, as an analyst might avoid IO costs of loading large data sets multiple times if they're (for example) just producing a couple of summary statistics or crosstabs.
 
-`$(function arguments)`
-
- Here function is a function name; one of a short list of names that are part of make. This list is at https://www.gnu.org/software/make/manual/make.html#Functions.
+When thinking about rules with multiple targets, note make actually parses the following equivalently:
 
 
- The arguments are the arguments of the function. They are separated from the function name by one or more spaces or tabs, and if there is more than one argument, then they are separated by commas. 
+```
+target1 target2: input1
+   run_something
+```
 
-### Exploration 
+and
 
-1. Run `make`. Note there are no rules in this makefile -- instead, we're using the helpful `$(info arguments)` function, which simply evaluates the arguments and prints them to standard output, to explore some basic functions.
+```
+target1: input1
+   run_something
+
+target2: input1
+   run_something
+```
+
+As such, here are a couple of traps you can fall into when multiple outputs are built on the same prerequisites and recipes.
+
+##### Sequential vs. parallel execution
+
+By default, `make` runs recipes for out-of-date targets sequentially. This both (a) makes recipes with multiple outputs run once (since the are all updated the first time the recipe is executed), but also makes the makefile brittle (in the sense that other users might run `make` in parallel).
+
+##### Exploration
+
+1. Run `make --just-print` to see the recipes to be executed. Note the dependency graph requires all three targets be updated, so the recipe prints three times.
+2. Now run `make` -- the recipe is only run once, since all three outputs are updated the first time.
+3. Now run `make clean` to remove the output files.
+4. Now rerun `make` in parallel, with `make -f makefile1 -j3` (three jobs). Note the difference between parallel and sequential execution.
+
+Note this implies a tradeoff: ignoring all but one output of an analysis script allows for easy parallelization, breaks the workflow graph. Note *you can enforce sequential runs using the target `.NOTPARALLEL`, but it applies to the entire makefile*.
 
