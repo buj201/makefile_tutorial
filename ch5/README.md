@@ -16,7 +16,7 @@ The `eval` function is very special: it allows you to define new makefile constr
 
 The result of the eval function is always the empty string; thus, it can be placed virtually anywhere in a makefile without causing syntax errors.
 
-It’s important to realize that the eval argument is expanded twice; first by the eval function, then the results of that expansion are expanded again when they are parsed as makefile syntax. This means you may need to provide extra levels of escaping for “$” characters when using eval. The value function (see Value Function) can sometimes be useful in these situations, to circumvent unwanted expansions.
+It’s important to realize that the eval argument is expanded twice; first by the eval function, then the results of that expansion are expanded again when they are parsed as makefile syntax. This means you may need to provide extra levels of escaping for “$” characters when using eval (ex: $$(var_to_be_expanded_when_parsed_as_makefile_syntax)).
 
 **One key application**: `eval` lets you define makefile templates, which you can then expand for each item in a list.
 

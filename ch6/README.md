@@ -2,9 +2,9 @@
 
 ### Sequential vs. parallel execution
 
-By default, `make` runs recipes for out-of-date targets sequentially. This both (a) makes recipes with multiple outputs run once, since all outputs all updated the first time the recipe is executed, and (b) makes the makefile brittle since other users might run `make` in parallel (but see note at the end of this README)
+By default, `make` runs recipes for out-of-date targets sequentially. This both (a) makes recipes with multiple outputs run once, since all outputs all updated the first time the recipe is executed, and (b) makes the makefile brittle since other users might run `make` in parallel (but see note at the end of this README).
 
-Another trap involving parallel execution involves the default behavior of following the prerequisites depth-first and from left-to-right -- relying on this behavior instead of explicitly including dependencies can fail when make is run with --jobs 2+. Note this is not illustrated in the makefile, but it is important to consider this if you want to run with more than one job.
+Another trap involving parallel execution involves the default behavior of following the prerequisites depth-first and from left-to-right when executing sequentially. Relying on this behavior instead of explicitly including dependencies can fail when make is run with --jobs 2+. Note this is not illustrated in the makefile, but it is important to consider this if you want to run with more than one job.
 
 ##### Make with multiple targets:
 
@@ -26,12 +26,12 @@ target2: prereq1
    run_something
 ```
 
-With this in mind, here are a couple of traps you can fall into when multiple outputs are built on the same prerequisites and recipes.
+With this in mind, the associated makefile illustrates how parallelizing fails for in this situation.
 
 ##### Exploration
 
 1. Run `make --just-print` to see the recipes to be executed. Note the dependency graph requires all three targets be updated, so the recipe prints three times.
-2. Now run `make` -- the recipe is only run once, since all three outputs are updated the first time.
+2. Now run `make` to execute sequentially -- the recipe is only run once, since all three outputs are updated the first time.
 3. Now run `make clean` to remove the output files.
 4. Now rerun `make` in parallel, with `make -j3` (three jobs). Note the difference between parallel and sequential execution.
 

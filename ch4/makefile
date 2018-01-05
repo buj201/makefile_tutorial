@@ -19,6 +19,10 @@ $(info $(return))
 # Previously, we've used single line variables
 # defined using "=" and ":="
 # To define multi-line varibles, use define/endef
+# Note you can use the assignment operators "=" and ":="
+# after "define <var_name>", but they are optional.
+# If you don't include them, make implicitly uses "="
+# (i.e. recursively expanded variable assignment).
 
 define multiline_var
 inner_first = $(1)

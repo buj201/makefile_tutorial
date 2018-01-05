@@ -70,7 +70,7 @@ $(foreach model,$(list),$(info $(call input_name,$(model))))
 # positional argument.
 
 # To make it easier to understand what is happening, we first
-# call info, which just expandes the $(call ...) and prints to
+# call info, which just expands the $(call ...) and prints to
 # stdout.
 
 $(info ---------------------------) # Hack to get divider
@@ -78,7 +78,6 @@ $(info Example2 -- foreach + eval, using info to explain)
 $(info ---------------------------) # Hack to get divider
 
 $(foreach model,$(list),$(info $(call rule_template,$(model))))
-$(info ) # Hack to get newline
 
 # Then we call eval, to actually expand into makefile syntax
 # which is evaluated by make.

@@ -27,7 +27,7 @@ $(info $(subst world,CLNY,$(subst_example)))
 # $(firstword names...)
 #	The argument names is regarded as a series of names, separated by whitespace.
 #	The value is the first name in the series.
-#	The rest of the names are ignored. 
+#	The rest of the names are ignored.
 list = word1 word2 word3
 $(info $(firstword $(list)))
 
@@ -46,10 +46,10 @@ $(info $(dir input/raw_data.csv makefile))
 # $(basename names…)
 #   Extracts all but the suffix of each file name in names.
 #	If the file name contains a period, the basename is everything starting up to (and not including)
-#	the last period. Periods in the directory part are ignored. 
+#	the last period. Periods in the directory part are ignored.
 #	 If there is no period, the basename is the entire file name.
 
 $(info $(basename input/raw_data.csv makefile))
 
 # There are many others -- the basic idea is that you can use these built-in
-# functions to easily manipulate filenames. 
+# functions to easily manipulate filenames.

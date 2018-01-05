@@ -2,7 +2,7 @@
 
 ### Intro:
 
-The call function is unique in that it can be used to create new parameterized functions. You can write a complex expression as the value of a variable, then use call to expand it with different values.
+The call function is unique in that it can be used to create new parameterized functions. You can write a complex expression as the value of a variable, then use `call` to expand it with different values.
 
 The syntax of the call function is:
 
@@ -17,7 +17,7 @@ Note that variable is the name of a variable, not a reference to that variable. 
 If variable is the name of a built-in function, the built-in function is always invoked (even if a make variable by that name also exists).
 
 
-### Exploration 
+### Exploration
 
 1. Run `make`. Note there are no rules in this makefile -- instead, we're using the helpful `$(info arguments)` function, which simply evaluates the arguments and prints them to standard output, to explore some basic functions.
 

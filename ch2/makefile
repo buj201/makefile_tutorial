@@ -20,7 +20,7 @@ first_example:
 # Recursively expanded variables are defined by lines using ‘=’.
 # The value you specify is installed verbatim; if it contains references to other variables,
 # these references are expanded whenever this variable is substituted (in the course of expanding some other string).
-# When this happens, it is called recursive expansion. 
+# When this happens, it is called recursive expansion.
 
 foo = $(bar)
 bar = $(ugh)
@@ -33,7 +33,7 @@ recursively_expanded_example:
 # Simply expanded variables are defined by lines using ‘:=’
 # The value of a simply expanded variable is scanned once and for all, expanding any references to other variables and functions,
 # when the variable is defined. The actual value of the simply expanded variable is the result of expanding the text that you write.
-# It does not contain any references to other variables; it contains their values as of the time this variable was defined. 
+# It does not contain any references to other variables; it contains their values as of the time this variable was defined.
 
 x := foo
 y := $(x) bar
@@ -42,13 +42,6 @@ x := later
 simply_expanded_example:
 	echo x = $(x)
 	echo y = $(y)
-
-file2: file1
-	echo Updating file2
-
-file1:
-	echo Updating file1
-
 
 ###########################
 # Appending to variables  #
