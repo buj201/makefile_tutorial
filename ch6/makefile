@@ -1,5 +1,5 @@
 # ch6/makefile1
-# Objective: Understand and avoid potential issues with data analytic makefiles -- in particular, multiple targets produced by the same recipe.
+# Objective: Understand and avoid potential issues with parallelization -- in particular, multiple targets produced by the same recipe.
 
 .PHONY = all clean
 .DEFAULT_GOAL: all

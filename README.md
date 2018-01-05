@@ -14,7 +14,7 @@ This short make/makefile tutorial was created by Ben Jakubowski for the Crime La
 3. Ch3: Make function syntax and built-ins
 4. Ch4: Calling user-defined functions
 5. Ch5: foreach and eval: metaprogramming make
-6. Ch6: Potential issues with data analytic makefiles
+6. Ch6: Potential issues with data analytic makefiles (particularly around parallelization)
 
 
 
